@@ -6,7 +6,7 @@ const path = require('path');
 const Expense = require('./models/expense');
 const Deposit = require('./models/deposit');
 
-const PORT = 3010;
+const PORT = process.env.PORT || 3010;
 
 const app = express();
 
@@ -18,7 +18,9 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname + '/dist')));
 
-mongoose.connect('mongodb://localhost/budget', {
+const CONNECTION_URI = process.env.MONGODB_URI || 'mongodb://localhost/budget';
+
+mongoose.connect(CONNECTION_URI, {
   useNewUrlParser: true,
   useFindAndModify: false,
   useUnifiedTopology: true,
