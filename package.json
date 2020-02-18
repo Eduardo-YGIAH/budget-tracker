@@ -4,10 +4,8 @@
 	"description": "",
 	"main": "app.js",
 	"scripts": {
-		"webpack": "webpack --watch",
-		"build": "npm run webpack",
 		"start": "node server.js",
-		"lite-server": "lite-server"
+		"heroku-postbuild": "webpack -p"
 	},
 	"keywords": [],
 	"author": "",
